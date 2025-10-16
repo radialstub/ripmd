@@ -11,7 +11,7 @@ defmodule Ripmd.Renderer.HTML.NotebookComponents do
 
   def cell(%{cell: %Livebook.Notebook.Cell.Markdown{}} = assigns) do
     ~H"""
-    <%= raw Earmark.as_html!(@cell.source) %>
+    <%= raw Earmark.as_html!(@cell.source, %Earmark.Options{escape: false}) %>
     """
   end
 
